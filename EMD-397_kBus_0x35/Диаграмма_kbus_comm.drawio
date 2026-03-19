@@ -1,0 +1,433 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.4 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.4">
+  <diagram name="Страница — 1" id="wVueuIJ4KE4MCB2seKdC">
+    <mxGraphModel dx="5673" dy="2947" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="1654" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="M-APucCFz-4uIC0XV3Aw-1" value="static void&amp;nbsp;&lt;div&gt;&lt;font style=&quot;color: rgb(102, 102, 255);&quot;&gt;&lt;b&gt;kbuscomm_state_enter&lt;/b&gt;&lt;/font&gt;(&lt;div&gt;KBusCommStateMachine *fsm, KBusCommState state)&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" parent="1" vertex="1">
+          <mxGeometry x="670" y="110" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="M-APucCFz-4uIC0XV3Aw-3" value="static void &lt;font color=&quot;#6666ff&quot;&gt;&lt;b&gt;kbuscomm_next_state_enter&lt;/b&gt;&lt;/font&gt;(&lt;div&gt;KBusCommStateMachine *fsm)&amp;nbsp;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" parent="1" vertex="1">
+          <mxGeometry x="670" y="260" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="M-APucCFz-4uIC0XV3Aw-4" value="void&lt;div&gt;&amp;nbsp; &lt;font color=&quot;#6666ff&quot;&gt;&lt;b&gt;kbuscomm_process&lt;/b&gt;&lt;/font&gt;(&lt;div&gt;KBusCommStateMachine *fsm)&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" parent="1" vertex="1">
+          <mxGeometry x="670" y="350" width="220" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="M-APucCFz-4uIC0XV3Aw-5" value="void&lt;div&gt;&amp;nbsp; &lt;font color=&quot;#6666ff&quot;&gt;&lt;b&gt;kbuscomm_start&lt;/b&gt;&lt;/font&gt;(&lt;div&gt;KBusCommStateMachine *fsm,&lt;/div&gt;&lt;div&gt;ModbusStateMachine* mb,&lt;/div&gt;&lt;div&gt;KBusModule* mod)&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" parent="1" vertex="1">
+          <mxGeometry x="670" y="440" width="220" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="M-APucCFz-4uIC0XV3Aw-8" value="&lt;div&gt;static void kbuscomm_next_state_enter(KBusCommStateMachine *fsm) {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; if (fsm-&amp;gt;state != KBUSCOMM_STATE_FINISHED)&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; kbuscomm_state_enter(fsm, fsm-&amp;gt;state + 1);&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="-790" y="110" width="350" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Y8qQ0ax3hkKe-9IbpHJT-1" value="&lt;div&gt;&lt;b&gt;KBus* kBus&lt;/b&gt;&lt;br&gt;&lt;/div&gt;HookFunction() создает объект kBus, который указывает на структуру KBus:&amp;nbsp;KBus* kBus = &amp;amp;((IoDrvKBus*)s_pIBase)-&amp;gt;kBus; (строка 258)" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-800" y="240" width="430" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="Y8qQ0ax3hkKe-9IbpHJT-3" value="&lt;div&gt;&lt;b&gt;kBus -&amp;gt; fsm&lt;/b&gt;&lt;br&gt;&lt;/div&gt;fsm - это объединение &lt;b&gt;union &lt;/b&gt;в структуре KBus&lt;div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; union {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; KBusAutoConfStateMachine autoconf;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; KBusConfStateMachine conf;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; KBusCommStateMachine comm;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; FwUpgradeStateMachine fwupgrade;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; } fsm;&lt;/div&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-800" y="310" width="430" height="138" as="geometry" />
+        </mxCell>
+        <mxCell id="Y8qQ0ax3hkKe-9IbpHJT-6" value="&lt;div&gt;&lt;b&gt;mb_read_input_registers() - &lt;/b&gt;НЕ является стандартной функцией библиотеки libmodbus&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=top;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-800" y="448" width="370" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="Y8qQ0ax3hkKe-9IbpHJT-8" value="&lt;div&gt;&lt;font style=&quot;color: rgb(102, 178, 255);&quot;&gt;&lt;b&gt;&lt;font style=&quot;font-size: 16px;&quot;&gt;ModbusStateMachine&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;typedef struct {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; ModbusState &lt;b&gt;state&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; RTS_HANDLE &lt;b&gt;hCom&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;txBuf&lt;/b&gt;[MODBUS_MAX_LENGTH];&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;rxBuf&lt;/b&gt;[MODBUS_MAX_LENGTH];&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; int &lt;b&gt;err&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;err_cnt&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;attempts&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint16_t &lt;b&gt;txLen&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint16_t &lt;b&gt;rxLen&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint32_t &lt;b&gt;timestamp&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint32_t &lt;b&gt;timeout&lt;/b&gt;;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;} &lt;b&gt;ModbusStateMachine&lt;/b&gt;;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2520" y="-1600" width="260" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="Y8qQ0ax3hkKe-9IbpHJT-9" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;b style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;mb_read_input_registers() --&amp;gt;&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;b&gt;mb_start_write() --&amp;gt;&amp;nbsp;&lt;/b&gt;&lt;br&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;b&gt;mb_reset(), mb_request_build(),&lt;/b&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;b&gt;mb_request_crc()&lt;/b&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=center;" parent="1" vertex="1">
+          <mxGeometry x="-800" y="540" width="190" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="Y8qQ0ax3hkKe-9IbpHJT-12" value="&lt;div&gt;typedef struct tagsyscomopen_struct&lt;/div&gt;&lt;div&gt;{&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;RTS_IEC_INT sPort;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&#x9;&lt;/span&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;&amp;nbsp;/* VAR_INPUT, Enum: SYS_COM_PORTS */&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;RTS_IEC_RESULT *pResult;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; /* VAR_INPUT */&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;/* &amp;lt;param name=&quot;pResult&quot; type=&quot;OUT&quot;&amp;gt;Pointer to runtime system error code (see CmpErrors.library)&amp;lt;/param&amp;gt; */&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;RTS_IEC_HANDLE SysComOpen;&amp;nbsp; &amp;nbsp; /* VAR_OUTPUT */&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;} &lt;b&gt;syscomopen_struct&lt;/b&gt;;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1070" y="800" width="530" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="gHBDbl-WhV7u39UwyFvt-1" value="&lt;div&gt;&lt;font style=&quot;color: rgb(102, 178, 255);&quot;&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;ModbusState&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef enum {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; MB_STATE_WRITE,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; MB_STATE_READ,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; MB_STATE_PENDING,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; MB_STATE_READY&lt;/div&gt;&lt;div&gt;} &lt;b&gt;ModbusState&lt;/b&gt;;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2220" y="-1600" width="260" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="gHBDbl-WhV7u39UwyFvt-2" value="&lt;div&gt;&lt;font style=&quot;color: rgb(102, 178, 255);&quot;&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;KBus&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef struct KBus {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;cnt&lt;/b&gt;; ///&amp;lt; Число подключённых модулей&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;scanIdx&lt;/b&gt;; ///&amp;lt; Итератор модулей расширения&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;modIdx&lt;/b&gt;; // индекс модуля&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp; &amp;nbsp; ModbusStateMachine &lt;b&gt;mb&lt;/b&gt;;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; union {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; KBusAutoConfStateMachine autoconf;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; KBusConfStateMachine conf;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; KBusCommStateMachine comm;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; FwUpgradeStateMachine fwupgrade;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; } &lt;b&gt;fsm&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; int &lt;b&gt;smb_fd&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; RTS_HANDLE &lt;b&gt;reset_gpio&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;cnt_drv_mod&lt;/b&gt;;&amp;nbsp; ///&amp;lt; Кол-djо модулей в конфигурации алгоритма&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; RTS_HANDLE &lt;b&gt;mtx&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;available&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;n_counters&lt;/b&gt;; ///&amp;lt; Макс. число счётчиков на модуль&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;n_analogs&lt;/b&gt;; ///&amp;lt; Макс. число аналоговых каналов на модуль&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; ///При размере буфера в 256 байт невозможен опрос более 31 модуля&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;buf&lt;/b&gt;[MODBUS_MAX_LENGTH];&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint16_t &lt;b&gt;bufLen&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusModule &lt;b&gt;modules&lt;/b&gt;[KBUS_MODULES_MAX];&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; IoConfigConnector &lt;b&gt;scanConnector&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; IoConfigParameter &lt;b&gt;scanParameters&lt;/b&gt;[4];&lt;/div&gt;&lt;div&gt;} KBus;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-3470" y="-1600" width="430" height="510" as="geometry" />
+        </mxCell>
+        <mxCell id="gHBDbl-WhV7u39UwyFvt-3" value="&lt;div&gt;modbus.c (строка 191)&lt;/div&gt;&lt;div&gt;static int&amp;nbsp;&lt;font style=&quot;background-color: transparent; color: rgb(51, 153, 255); font-size: 18px;&quot;&gt;syscom_write&lt;/font&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;(RTS_HANDLE hCom, uint8_t* buf, size_t len) {&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; RTS_RESULT res;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; CAL_SysComPurge(hCom);&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; RTS_UI32 ret = CAL_SysComWrite(hCom, buf, len, 0, &amp;amp;res);&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; return res != ERR_OK &amp;amp;&amp;amp; ret != len ? -1 : 0;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="140" width="430" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="gHBDbl-WhV7u39UwyFvt-4" value="&lt;div&gt;modbus.c (строка 261)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;static RTS_UI32 &lt;font style=&quot;font-size: 18px; color: rgb(51, 153, 255);&quot;&gt;mb_read&lt;/font&gt;(ModbusStateMachine* fsm)&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&amp;nbsp;{&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; RTS_UI32 size = CAL_SysComRead(fsm-&amp;gt;hCom, fsm-&amp;gt;rxBuf + fsm-&amp;gt;rxLen,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp;MODBUS_MAX_LENGTH - fsm-&amp;gt;rxLen, 0, NULL);&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; if (size &amp;gt; 0) {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fsm-&amp;gt;rxLen += size;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; fsm-&amp;gt;timestamp = CAL_SysTimeGetMs();&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; }&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; return size;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" parent="1" vertex="1">
+          <mxGeometry x="40" y="340" width="430" height="180" as="geometry" />
+        </mxCell>
+        <mxCell id="qtXsbxlCK8YcV9-iouNY-1" value="&lt;div&gt;Общая архитектура&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1. IoDrvKBus.c (верхний уровень)&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Вызывает функции из kbus.c для инициализации, открытия, опроса, закрытия KBus.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Реализует интерфейс Codesys для ввода-вывода.&lt;/div&gt;&lt;div&gt;2. kbus.c (логика KBus)&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Управляет состоянием шины и модулями.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Для обмена с модулями вызывает функции из kbus_comm.c (например, kbuscomm_start, kbuscomm_process).&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Для низкоуровневого обмена использует функции из modbus.c (например, отправка/приём пакетов).&lt;/div&gt;&lt;div&gt;3. kbus_comm.c (обмен с модулями)&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Реализует конечный автомат обмена с модулями KBus.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Для передачи и приёма данных вызывает функции из modbus.c.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Может вызывать обратные вызовы в kbus.c для обработки событий (например, ошибки, завершение обмена).&lt;/div&gt;&lt;div&gt;4. modbus.c (низкоуровневый протокол)&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Реализует отправку и приём пакетов Modbus через COM-порт.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Не знает о KBus, работает только с байтовыми потоками.&lt;/div&gt;&lt;div&gt;---&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;1.&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Инициализация&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;IoDrvKBus.c вызывает kbus_init() из kbus.c.&lt;/div&gt;&lt;div&gt;2.&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Открытие&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;IoDrvKBus.c вызывает kbus_open() из kbus.c.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;kbus.c настраивает COM-порт, SMBus и т.д.&lt;/div&gt;&lt;div&gt;3.&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Опрос модулей&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;В цикле IoDrvKBus.c вызывает kbus_task() из kbus.c.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;kbus_task() вызывает kbuscomm_start() или kbuscomm_process() из kbus_comm.c.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;kbus_comm.c вызывает функции из modbus.c для отправки/приёма данных.&lt;/div&gt;&lt;div&gt;4.&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Закрытие&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;IoDrvKBus.c вызывает kbus_close() из kbus.c.&lt;/div&gt;&lt;div&gt;---&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;IoDrvKBus.c управляет всем процессом, вызывает функции из kbus.c.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;kbus.c — центральный диспетчер, делегирует обмен в kbus_comm.c и низкоуровневую работу в modbus.c.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;kbus_comm.c реализует автомат обмена, вызывает низкоуровневые функции из modbus.c.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;modbus.c работает только с байтами, не знает о KBus.&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1785" y="-1600" width="770" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="FPRmQMnY9eR2uaSK9QJn-1" value="&lt;div&gt;Отправляет запросы на запись и чтение регистров&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;modbus.c (строка 262)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;void&amp;nbsp;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;color: rgb(51, 51, 255);&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;k&lt;/font&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;buscomm_process&lt;/font&gt;&lt;/font&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(&lt;/span&gt;&lt;div&gt;&lt;div&gt;KBusCommStateMachine *fsm)&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#dae8fc;strokeColor=#6c8ebf;align=left;" parent="1" vertex="1">
+          <mxGeometry x="50" y="570" width="290" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="FPRmQMnY9eR2uaSK9QJn-2" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;RTS_UI32 CDECL SysComWrite(RTS_HANDLE hCom, unsigned char *pbyBuffer, RTS_UI32 uiSize, RTS_UI32 &lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;ulTimeout, RTS_RESULT *pResult)&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1080" y="1020" width="710" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="WCAfoDGU5FmjCLHIvdU8-1" value="&lt;div&gt;&lt;font style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;inp_mapped&lt;/b&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;static inline uint8_t inp_mapped(KBusModule* mod, KBusChannel chan) {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusChannelParameter* param = &amp;amp;mod-&amp;gt;parameter_values[chan];&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; return param-&amp;gt;base.mapped &amp;amp;&amp;amp; param-&amp;gt;configured;&lt;/div&gt;&lt;div&gt;}&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;Что делает функция inp_mapped&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Назначение:&lt;/div&gt;&lt;div&gt;Проверяет, &quot;отображён&quot; ли (т.е. используется ли) определённый канал ввода (например, дискретный, аналоговый и т.д.) в модуле mod.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Параметры:&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;mod — указатель на структуру модуля KBus (KBusModule*).&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;chan — номер канала (enum или индекс).&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Логика:&lt;/div&gt;&lt;div&gt;1.&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Получает структуру параметров канала:&lt;/div&gt;&lt;div&gt;KBusChannelParameter* param = &amp;amp;mod-&amp;gt;parameter_values[chan];&lt;/div&gt;&lt;div&gt;2.&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Проверяет два условия:&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;param-&amp;gt;base.mapped — канал &quot;отображён&quot; (т.е. назначен в проекте, не отключён).&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;param-&amp;gt;configured — канал сконфигурирован (настроен пользователем или системой).&lt;/div&gt;&lt;div&gt;3.&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Возвращает 1 (истина), если оба условия выполняются, иначе 0.&lt;/div&gt;&lt;div&gt;Для чего это нужно&lt;/div&gt;&lt;div&gt;Эта функция используется для фильтрации каналов, чтобы работать только с теми, которые реально используются и корректно настроены. Например, если канал не отображён или не сконфигурирован, его не будут опрашивать или управлять им.&lt;/div&gt;&lt;div&gt;Пример&lt;/div&gt;&lt;div&gt;Если у модуля есть 8 дискретных входов, но в проекте используются только 3, то только для этих трёх inp_mapped вернёт 1, для остальных — 0.&lt;/div&gt;&lt;div&gt;Возможные &quot;подводные камни&quot;&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Если забыть сконфигурировать канал или не назначить его в проекте, функция всегда будет возвращать 0, и канал не будет участвовать в обмене.&lt;/div&gt;&lt;div&gt;•&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;Функция не проверяет тип канала — только его статус в массиве параметров.&lt;/div&gt;&lt;div&gt;Если нужны детали по структурам или по использованию этой функции в других местах — уточните!&lt;/div&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2180" y="260" width="520" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="WCAfoDGU5FmjCLHIvdU8-2" value="&lt;div&gt;&lt;font style=&quot;color: rgb(102, 178, 255);&quot;&gt;&lt;span style=&quot;background-color: transparent; font-size: 16px;&quot;&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;b&gt;KBusCommStateMachine&lt;/b&gt;&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;// Описывает состояние обмена с модулем&lt;/div&gt;&lt;div&gt;typedef struct {&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;ModbusStateMachine* &lt;b&gt;mb&lt;/b&gt;; // поля state ( WRITE, READ, PENDING, READY), txBuf (буфер передачи), rxBuf (буфер приема) и т.д.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: pre;&quot;&gt;&#x9;&lt;/span&gt;KBusCommState &lt;b&gt;state&lt;/b&gt;; // состояние kbuscomm_state_enter&amp;nbsp;(DINP, AINP, DOUT, AOUT и т.д.)&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;KBusModule* &lt;b&gt;mod&lt;/b&gt;; // указатель на структуру KBusModule, поля address (Modbus-адрес), discretes (число дискретных входов), analogs (число аналоговых входов) и т.д.&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint8_t &lt;b&gt;err&lt;/b&gt;; // поле для хранения кода ошибки&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint8_t &lt;b&gt;err_cnt&lt;/b&gt;; // счётчик ошибок&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint8_t &lt;b&gt;idx&lt;/b&gt;; // индекс для циклов&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint16_t &lt;b&gt;regAddr&lt;/b&gt;; // адрес первого регистра для текущей операции&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint16_t &lt;b&gt;regAmount&lt;/b&gt;; // количество регистров для текущей операции&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;KBusAlarmsAmount &lt;b&gt;alarmsAmount&lt;/b&gt;; // количество аварий&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;KBusExtModAlarm &lt;b&gt;alarms&lt;/b&gt;[KBUS_ALARMS_AMOUNT]; // массив аварий&lt;/span&gt;&lt;/div&gt;&lt;div&gt;} KBusCommStateMachine;&amp;nbsp;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2980" y="-1450" width="420" height="330" as="geometry" />
+        </mxCell>
+        <mxCell id="WCAfoDGU5FmjCLHIvdU8-3" value="&lt;div&gt;&lt;span style=&quot;font-size: 20px;&quot;&gt;&lt;b&gt;mb_process&amp;nbsp;&lt;/b&gt;&lt;/span&gt;&lt;span style=&quot;background-color: transparent;&quot;&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;(ModbusStateMachine* fsm)&lt;/font&gt;&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Вызовы&amp;nbsp;&lt;/div&gt;" style="whiteSpace=wrap;html=1;aspect=fixed;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2180" y="790" width="520" height="520" as="geometry" />
+        </mxCell>
+        <mxCell id="WCAfoDGU5FmjCLHIvdU8-4" value="&lt;div&gt;&lt;font style=&quot;color: rgb(102, 178, 255); font-size: 10px;&quot;&gt;&lt;b style=&quot;&quot;&gt;&lt;font style=&quot;&quot;&gt;ModbusStateMachine&lt;/font&gt;&lt;/b&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;typedef struct {&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; ModbusState state;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; RTS_HANDLE hCom;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint8_t txBuf[MODBUS_MAX_LENGTH];&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint8_t rxBuf[MODBUS_MAX_LENGTH];&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; int err;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint8_t err_cnt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint8_t attempts;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint16_t txLen;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint16_t rxLen;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint32_t timestamp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;&amp;nbsp; &amp;nbsp; uint32_t timeout;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;} &lt;b style=&quot;&quot;&gt;ModbusStateMachine&lt;/b&gt;;&lt;/font&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1860" y="1040" width="200" height="220" as="geometry" />
+        </mxCell>
+        <mxCell id="WCAfoDGU5FmjCLHIvdU8-5" value="&lt;div&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;KBusAutoConfStateMachine&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef struct {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; ModbusStateMachine* mb;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusAutoConfState state;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusModule* modules;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t err;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t err_cnt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t idx;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint32_t timestamp;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; int smb;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t cnt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; bool init;&lt;/div&gt;&lt;div&gt;} &lt;b&gt;&lt;font style=&quot;font-size: 14px;&quot;&gt;KBusAutoConfStateMachine&lt;/font&gt;&lt;/b&gt;;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-3450" y="-367.5" width="260" height="240" as="geometry" />
+        </mxCell>
+        <mxCell id="WCAfoDGU5FmjCLHIvdU8-6" value="&lt;div&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;KBusModule&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef struct KBusModule {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;address&lt;/b&gt;; ///&amp;lt; Modbus адрес&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; // Число соответствующих пинов&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;powers&lt;/b&gt;;&amp;nbsp; // 6&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;discretes&lt;/b&gt;; // 8&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;analogs&lt;/b&gt;; // 8&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;counters&lt;/b&gt;;///&amp;lt; Число дискретных пинов в режиме счётчика&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; const KBusPinConfig* &lt;b&gt;conf&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;cnt&lt;/b&gt;; ///&amp;lt; Число пинов&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint8_t &lt;b&gt;counter_ids&lt;/b&gt;[KBUS_MODULE_PINS_MAX];///&amp;lt; Номера каналов, на которых находятся счётчики&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint32_t &lt;b&gt;safe_outp_flags&lt;/b&gt;; ///&amp;lt; Каналы, переходящие в безопасное состояние при потере связи с мастером&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusChannelParameter &lt;b&gt;parameter_values&lt;/b&gt;[KBUS_CHANNEL_AMOUNT];&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusModuleState &lt;b&gt;state&lt;/b&gt;; ///&amp;lt; Состояние конфигурирования&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusModuleInfo &lt;b&gt;info&lt;/b&gt;; ///&amp;lt; Серийник, тип, версия ОС, шифр&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; uint32_t &lt;b&gt;runtime_version&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; /// Позиции в буферах: 0 - PDO, 4 - DIO, 8 - analogs, 8+4*n_analogs - counter_commands и counters(в буферах выходов и входов соответственно)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusModuleInputData &lt;b&gt;inp_data&lt;/b&gt;; ///&amp;lt; Буфер значений всех входов&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusModuleOutputData &lt;b&gt;out_data&lt;/b&gt;; ///&amp;lt; Буфер значений всех выходов&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusParameter &lt;b&gt;err_id&lt;/b&gt;;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&#x9;&lt;/span&gt;///&amp;lt; Флаги отказов МР (см. kbus_err_t)&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; int &lt;b&gt;err_transfer_count&lt;/b&gt;;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;///&amp;lt; Число повторных передач по kbus&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusParameter &lt;b&gt;conf_err&lt;/b&gt;;&amp;nbsp; ///&amp;lt; Маска отказов конфигурации каналов модуля&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusParameter &lt;b&gt;wr_de&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; IoConfigConnector *&lt;b&gt;pConn&lt;/b&gt;;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;} KBusModule;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-3460" y="-1035" width="490" height="575" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-2" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.997;exitY=0.429;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2960" y="-1300.0000000000002" as="sourcePoint" />
+            <mxPoint x="-3190" y="-1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-4" value="&lt;div&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;KBusCommState&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef enum {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_DINP,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_PINP,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_AINP,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_CNTINP,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_DOUT,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_AOUT,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_POUT,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_CNTOUT,&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_35FUN,&amp;nbsp;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_ALARMS_INFO,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_ALARMS_NACK,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_ALARMS_CONFIRM,&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBUSCOMM_STATE_FINISHED&lt;/div&gt;&lt;div&gt;} KBusCommState;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2520" y="-1330" width="280" height="310" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-5" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.997;exitY=0.429;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2820" y="-1320.66" as="sourcePoint" />
+            <mxPoint x="-2530" y="-1310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-6" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2800" y="-1360" as="sourcePoint" />
+            <mxPoint x="-2540" y="-1560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-8" value="&lt;div&gt;&lt;font style=&quot;color: rgb(102, 178, 255); font-size: 16px;&quot;&gt;&lt;b&gt;KBusChannelParameter&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef struct {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; KBusParameter &lt;b&gt;base&lt;/b&gt;;&amp;nbsp;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint8_t &lt;b&gt;configured&lt;/b&gt;; // 1 - канал сконфигурирован, 0 - нет&lt;/span&gt;&lt;/div&gt;&lt;div&gt;} KBusChannelParameter;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2930" y="-840" width="340" height="107" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-9" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2940" y="-810" as="sourcePoint" />
+            <mxPoint x="-3050" y="-759.9999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-10" value="&lt;div&gt;&lt;font style=&quot;color: rgb(102, 178, 255); font-size: 16px;&quot;&gt;&lt;b&gt;KBusParameter&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef struct {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; union {&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; void* ptr;&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; uint32_t value;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;} &lt;b&gt;data&lt;/b&gt;; // 32-битное поле, содержащее либо указатель, либо значение&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint8_t &lt;b&gt;isPointer&lt;/b&gt; : 1; // Объявлено битовое поле размером 1 бит. 0 - data содержит значение, 1 - указатель&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint8_t &lt;b&gt;mapped &lt;/b&gt;: 1; // 0 - канал не сопоставлен, 1 - сопоставлен&lt;/span&gt;&lt;/div&gt;&lt;div&gt;} KBusParameter;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2560" y="-840" width="440" height="207" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.997;exitY=0.429;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2790" y="-780.0000000000002" as="sourcePoint" />
+            <mxPoint x="-2570" y="-800" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-12" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-3250" y="-1410" as="sourcePoint" />
+            <mxPoint x="-3000" y="-1430" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-13" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-3310" y="-1480" as="sourcePoint" />
+            <mxPoint x="-2577" y="-1570" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-14" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2400" y="-1540" as="sourcePoint" />
+            <mxPoint x="-2220" y="-1580" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-15" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbus_task&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus.c - (310)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1260" y="-746.5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-16" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;HookFunction&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;IoDrvKBus.c - (259)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1260" y="-846.5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-17" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_start&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (267)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1400" y="-621.5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-18" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.1556" y="-30" width="80" relative="1" as="geometry">
+            <mxPoint x="-1170" y="-796.5" as="sourcePoint" />
+            <mxPoint x="-1170" y="-746.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-19" value="Если&amp;nbsp;&lt;div&gt;&lt;span style=&quot;font-size: 12px; text-align: left; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;KBUSCOMM_STATE_FINISHED&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.1556" y="-30" width="80" relative="1" as="geometry">
+            <mxPoint x="-1250" y="-694" as="sourcePoint" />
+            <mxPoint x="-1250" y="-621.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-20" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_process&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (288)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1110" y="-621.5" width="250" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-21" value="Если НЕ&amp;nbsp;&lt;div&gt;&lt;span style=&quot;font-size: 12px; text-align: left; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;KBUSCOMM_STATE_FINISHED&lt;/span&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.2138" y="100" width="80" relative="1" as="geometry">
+            <mxPoint x="-1080" y="-694" as="sourcePoint" />
+            <mxPoint x="-1080" y="-621.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-22" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_state_enter&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (66)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1480" y="-521.5" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-23" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.1556" y="-30" width="80" relative="1" as="geometry">
+            <mxPoint x="-1310" y="-571.5" as="sourcePoint" />
+            <mxPoint x="-1310" y="-521.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-24" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_next_state_enter&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (212)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1480" y="-421.5" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-25" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.1556" y="-30" width="80" relative="1" as="geometry">
+            <mxPoint x="-1310" y="-471.5" as="sourcePoint" />
+            <mxPoint x="-1310" y="-421.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-28" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;mb_process&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;modbus.c - (270)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1180" y="-341.5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-29" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.166;exitY=1.076;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="bzVdD96W8wl-XChFM-9r-20" edge="1">
+          <mxGeometry x="0.1556" y="-30" width="80" relative="1" as="geometry">
+            <mxPoint x="-1070" y="-391.5" as="sourcePoint" />
+            <mxPoint x="-1070" y="-341.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-30" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_handle_ready&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (217)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-985" y="-521.5" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-31" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.1556" y="-30" width="80" relative="1" as="geometry">
+            <mxPoint x="-935" y="-571.5" as="sourcePoint" />
+            <mxPoint x="-935" y="-521.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-32" value="Вызывает при&amp;nbsp;&lt;div&gt;ошибке на шине&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0.042;exitY=1.064;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="bzVdD96W8wl-XChFM-9r-20" edge="1">
+          <mxGeometry x="0.3717" y="30" width="80" relative="1" as="geometry">
+            <mxPoint x="-1300" y="-461.5" as="sourcePoint" />
+            <mxPoint x="-1260" y="-431.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="bzVdD96W8wl-XChFM-9r-33" value="Вызывает при&amp;nbsp;&lt;div&gt;ошибке на шине&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.193" y="22" width="80" relative="1" as="geometry">
+            <mxPoint x="-1120" y="-601.5" as="sourcePoint" />
+            <mxPoint x="-1260" y="-494.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-1" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;dinp_mapped&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (54)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;pinp_mapped&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (46)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;inp_mapped&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (37)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;out_mapped&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (42)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1870" y="-661.5" width="255" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-2" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" source="bzVdD96W8wl-XChFM-9r-22" edge="1">
+          <mxGeometry x="-0.0543" y="-15" width="80" relative="1" as="geometry">
+            <mxPoint x="-1504" y="-501.5" as="sourcePoint" />
+            <mxPoint x="-1610" y="-581.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-3" value="Смотрит поле mapped и configured структуры KBusModule.KBusChannelParameter и определяют нужен ли запрос&amp;nbsp;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1870" y="-711.5" width="275" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-4" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;mb_read_discrete_inputs&amp;nbsp; &lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;modbus.c - (304)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_read_coils&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: x-small; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;modbus.c - (299)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_read_input_registers&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent; font-size: x-small;&quot;&gt;modbus.c - (289)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_write_coils&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent; font-size: x-small;&quot;&gt;modbus.c - (326)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_write_registers&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent; font-size: x-small;&quot;&gt;modbus.c - (314)&lt;/span&gt;&lt;span style=&quot;color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); background-color: transparent; font-size: x-small;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1960" y="-331.5" width="345" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-5" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_setup_dio&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (15)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_setup_pdo&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (20)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_setup_aio&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (25)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_setup_counter&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;kbus_comm.c - (31)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1870" y="-491.5" width="250" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-6" value="Устанавливает адрес в поле regAddr&amp;nbsp; и количество регистров в поле regAmount структуры&amp;nbsp;KBusCommStateMachine" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1870" y="-541.5" width="260" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-7" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1.016;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="qUPeANYY_Eqfs5LFXfvF-5" edge="1">
+          <mxGeometry x="-0.0543" y="-15" width="80" relative="1" as="geometry">
+            <mxPoint x="-1480" y="-491.5" as="sourcePoint" />
+            <mxPoint x="-1610" y="-564.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-8" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;" parent="1" edge="1">
+          <mxGeometry x="0.1302" y="-16" width="80" relative="1" as="geometry">
+            <mxPoint x="-1480" y="-476.5" as="sourcePoint" />
+            <mxPoint x="-1620" y="-341.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-9" value="Устанавливает адрес и количество регистров для чтения" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1960" y="-361.5" width="200" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-10" value="" style="html=1;verticalAlign=bottom;endArrow=open;curved=0;rounded=0;dashed=1;endFill=0;" parent="1" edge="1">
+          <mxGeometry x="-0.0556" y="-15" width="80" relative="1" as="geometry">
+            <mxPoint x="-1450" y="-531.5" as="sourcePoint" />
+            <mxPoint x="-1540" y="-741.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-11" value="&lt;div&gt;Получает от kbuscomm_start в переменной fsm очередной модуль, кот. необходимо опросить&lt;/div&gt;Тип fsm - структура KBusCommStateMachine.&lt;div&gt;Также в переменной state (&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;перечисление&amp;nbsp; KBusCommState&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;) получает значение шага&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1790" y="-811.5" width="275" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-12" value="" style="html=1;verticalAlign=bottom;endArrow=open;curved=0;rounded=0;dashed=1;endFill=0;exitX=0.172;exitY=-0.013;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="bzVdD96W8wl-XChFM-9r-17" edge="1">
+          <mxGeometry x="-0.0556" y="-15" width="80" relative="1" as="geometry">
+            <mxPoint x="-1325" y="-621.5" as="sourcePoint" />
+            <mxPoint x="-1470" y="-811.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-13" value="Вызывается когда опрошены очередной модуль на шине. Получает новые значения модуля от kbus_task и переводит state в&amp;nbsp;KBUSCOMM_STATE_DINP" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1629" y="-894" width="275" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-14" value="" style="html=1;verticalAlign=bottom;endArrow=open;curved=0;rounded=0;dashed=1;endFill=0;" parent="1" edge="1">
+          <mxGeometry x="-0.0556" y="-15" width="80" relative="1" as="geometry">
+            <mxPoint x="-1265" y="-754" as="sourcePoint" />
+            <mxPoint x="-1320" y="-891.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-15" value="Получает структуру KBus (переменная&amp;nbsp; KBus). Проверяет текущий шаг в&amp;nbsp;kBus-&amp;gt;fsm.comm.state Если&amp;nbsp;KBUSCOMM_STATE_FINISHED то вызывает kbuscomm_start иначе&amp;nbsp;kbuscomm_process.&amp;nbsp;&lt;div&gt;Также итерирует&amp;nbsp;&amp;nbsp;kBus-&amp;gt;modIdx индекс модуля&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1430" y="-980" width="275" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.997;exitY=0.429;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-3190" y="-1160.0000000000002" as="sourcePoint" />
+            <mxPoint x="-3300" y="-1050" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-17" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;mb_start_write&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: x-small;&quot;&gt;modbus.c - (239)&lt;/span&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-2400" y="-333" width="230" height="41.5" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-18" value="использует" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry y="-10" width="80" relative="1" as="geometry">
+            <mxPoint x="-1970" y="-310" as="sourcePoint" />
+            <mxPoint x="-2160" y="-310" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-20" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;mb_request_build&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: x-small;&quot;&gt;modbus.c - (144)&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-2390" y="-200" width="180" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-21" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;mb_reset&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: x-small;&quot;&gt;modbus.c - (254)&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-2550" y="-200" width="150" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-22" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;mb_request_crc&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: x-small;&quot;&gt;modbus.c - (241)&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-2200" y="-200" width="180" height="43" as="geometry" />
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-23" value="Сброс ошибок" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.0837" y="-20" width="80" relative="1" as="geometry">
+            <mxPoint x="-2370" y="-280" as="sourcePoint" />
+            <mxPoint x="-2500" y="-210" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-25" value="Формирование запроса&amp;nbsp;&lt;div&gt;в буфер txBuf без CRC&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.0875" y="-20" width="80" relative="1" as="geometry">
+            <mxPoint x="-2275" y="-282.5" as="sourcePoint" />
+            <mxPoint x="-2275" y="-212" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="qUPeANYY_Eqfs5LFXfvF-26" value="Формирование CRC16&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;и&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;background-color: light-dark(#ffffff, var(--ge-dark-color, #121212)); color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;добавление его в конец запроса&lt;/span&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.4661" y="12" width="80" relative="1" as="geometry">
+            <mxPoint x="-2160" y="-291.5" as="sourcePoint" />
+            <mxPoint x="-2120" y="-213.75" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-3" value="" style="html=1;verticalAlign=bottom;endArrow=open;curved=0;rounded=0;dashed=1;endFill=0;exitX=0.172;exitY=-0.013;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.775;entryY=0.026;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="4RB8PI-OiV-XUuOvX8se-4" edge="1">
+          <mxGeometry x="-0.0556" y="-15" width="80" relative="1" as="geometry">
+            <mxPoint x="-1180" y="-320.5" as="sourcePoint" />
+            <mxPoint x="-1220" y="-270" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-4" value="Действия зависят от значения&amp;nbsp;&lt;div&gt;ModbusStateMachine.state (WRITE, READ, READY, PENDING)&amp;nbsp;&amp;nbsp;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-1515" y="-306.5" width="275" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-5" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;syscom_write&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: x-small;&quot;&gt;modbus.c - (246)&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;mb_read&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: x-small;&quot;&gt;modbus.c - (318)&lt;/span&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1310" y="-208.5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-7" value="Запись/чтение&amp;nbsp;&lt;div&gt;данных&amp;nbsp;&lt;div&gt;COM-порт&lt;/div&gt;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;align=left;" parent="1" edge="1">
+          <mxGeometry x="0.4819" y="8" width="80" relative="1" as="geometry">
+            <mxPoint x="-1168" y="-291.5" as="sourcePoint" />
+            <mxPoint x="-1168" y="-208.5" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-8" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;mb_state_enter&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;modbus.c - (246)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-1050" y="-207" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-9" value="Переключает&amp;nbsp;&lt;span style=&quot;font-size: 12px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;ModbusStateMachine.state&amp;nbsp;&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 12px; text-wrap: wrap; background-color: rgb(251, 251, 251);&quot;&gt;(WRITE, READ, READY, PENDING)&amp;nbsp;&lt;/span&gt;&amp;nbsp;&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;align=left;" parent="1" edge="1">
+          <mxGeometry x="0.4217" y="10" width="80" relative="1" as="geometry">
+            <mxPoint x="-1000" y="-289" as="sourcePoint" />
+            <mxPoint x="-1000" y="-206" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-10" value="&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_error&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;modbus.c - (295)&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;div style=&quot;text-align: justify;&quot;&gt;&lt;span style=&quot;background-color: transparent; text-align: left; font-size: 18px;&quot;&gt;mb_check&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: x-small; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;modbus.c - (263)&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: x-small;&quot;&gt;)&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-1180" y="-90" width="185" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="4RB8PI-OiV-XUuOvX8se-14" value="Проверяют ответ&amp;nbsp;&lt;div&gt;и устанавливаю либо&lt;/div&gt;&lt;div&gt;OK либо ошибка&lt;/div&gt;" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;align=left;entryX=0.535;entryY=-0.054;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="4RB8PI-OiV-XUuOvX8se-10" edge="1">
+          <mxGeometry x="0.9298" y="11" width="80" relative="1" as="geometry">
+            <mxPoint x="-1080" y="-289" as="sourcePoint" />
+            <mxPoint x="-1080" y="-206" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gaI6gCgbC_pztg8xVrR4-1" value="&lt;div&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;KBusModuleInputData&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef struct { // Информация о модуле&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint32_t &lt;b&gt;discretes&lt;/b&gt;; // Количество дискретных каналов. Нет указателя, т.к. дискретных каналов может быть много, но они хранятся в одном числе&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;float* &lt;b&gt;analogs&lt;/b&gt;; // Количество аналоговых каналов. Указатель на массив float т.к. аналоговых каналов может быть много&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint64_t* &lt;b&gt;counters&lt;/b&gt;; // Количество каналов-счётчиков. Указатель на массив uint64_t т.к. каналов-счётчиков может быть много&lt;/span&gt;&lt;/div&gt;&lt;div&gt;} &lt;b&gt;KBusModuleInputData&lt;/b&gt;; // /&amp;lt; Буфер значений всех входов. Содержит массивы значений входов. Используется для динамического выделения памяти.&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2930" y="-711.5" width="340" height="231.5" as="geometry" />
+        </mxCell>
+        <mxCell id="gaI6gCgbC_pztg8xVrR4-2" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2940" y="-690" as="sourcePoint" />
+            <mxPoint x="-3080" y="-621.4999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="gaI6gCgbC_pztg8xVrR4-3" value="&lt;div&gt;&lt;font color=&quot;#66b2ff&quot;&gt;&lt;span style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;KBusModuleOutputData&lt;/b&gt;&lt;/span&gt;&lt;/font&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;&lt;div&gt;typedef struct {&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint8_t* &lt;b&gt;counters&lt;/b&gt;; // Количество каналов-счётчиков. Указатель на массив uint8_t т.к. каналов-счётчиков может быть много&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;float* &lt;b&gt;analogs&lt;/b&gt;; // Количество аналоговых каналов. Указатель на массив float т.к. аналоговых каналов может быть много&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint32_t &lt;b&gt;powers&lt;/b&gt;; // Количество силовых каналов. Нет указателя, т.к. силовых каналов может быть много, но они хранятся в одном числе&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;white-space: normal;&quot;&gt;&lt;span style=&quot;white-space:pre&quot;&gt;&#x9;&lt;/span&gt;uint32_t &lt;b&gt;discretes&lt;/b&gt;; // Количество дискретных каналов. Нет указателя, т.к. дискретных каналов может быть много, но они хранятся в одном числе&lt;/span&gt;&lt;/div&gt;&lt;div&gt;} &lt;b&gt;KBusModuleOutputData&lt;/b&gt;; // /&amp;lt; Буфер значений всех выходов.&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;align=left;" parent="1" vertex="1">
+          <mxGeometry x="-2930" y="-468" width="340" height="258" as="geometry" />
+        </mxCell>
+        <mxCell id="gaI6gCgbC_pztg8xVrR4-4" value="" style="endArrow=classic;html=1;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="-2940" y="-460" as="sourcePoint" />
+            <mxPoint x="-3062" y="-601.4999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d4RuPSLo96OGtzROQ47g-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;curved=0;rounded=0;dashed=1;endFill=0;exitX=0.172;exitY=-0.013;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+          <mxGeometry x="-0.0556" y="-15" width="80" relative="1" as="geometry">
+            <mxPoint x="-786" y="-530.5" as="sourcePoint" />
+            <mxPoint x="-740" y="-600" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="d4RuPSLo96OGtzROQ47g-2" value="Запрашивается текущее состояние DINP, AINP, CNTINP, ALARMS_INFO. Для DINP данные копируются из буфера приема Rx (&amp;amp;fsm-&amp;gt;mb-&amp;gt;rxBuf[MODBUS_RX_DATA_OFF]) в буфер&amp;nbsp;&amp;amp;mod-&amp;gt;inp_data.discretes" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-790" y="-670" width="330" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-1" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbus_task&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus.c - (310)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-870" y="-1450" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-2" value="Вызывает&amp;nbsp;&lt;span style=&quot;font-size: 18px; text-align: center;&quot;&gt;kbuscomm_process пока не прошли по всем шагам KBus.&lt;/span&gt;&lt;div&gt;&lt;span style=&quot;font-size: 18px; text-align: center;&quot;&gt;Шаг STATE_FINISHED сигнализирует kbus_task, что прошли по всем шагам state и можно перейти к следующему модулю.&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 18px; text-align: center; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;kbus_task вызывает&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 18px; text-align: center; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;kbuscomm_start&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px; text-align: center;&quot;&gt;вместо&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px; text-align: center;&quot;&gt;kbuscomm_process.&amp;nbsp;&lt;/span&gt;&lt;/div&gt;&lt;div&gt;&lt;span style=&quot;font-size: 18px; text-align: center;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-620" y="-1450" width="275" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-3" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_start&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (267)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-870" y="-1257.5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-4" value="&lt;span style=&quot;text-align: center;&quot;&gt;&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_start запускает опрос нового модуля с шага KBUSCOMM_STATE_DINP&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;div&gt;&lt;span style=&quot;font-size: 18px; text-align: center;&quot;&gt;&lt;br&gt;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-620" y="-1247.5" width="275" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-5" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_process&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (288)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-870" y="-1147.5" width="200" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-6" value="&lt;div&gt;&lt;span style=&quot;font-size: 18px; text-align: center;&quot;&gt;Продолжает опрос модуля, если шаг state KBus не последний.&lt;/span&gt;&lt;/div&gt;&lt;div style=&quot;text-align: left;&quot;&gt;&lt;span style=&quot;font-size: 18px; text-align: center;&quot;&gt;При этом всегда вызывает mb_process и если в mb_process достигли шага&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; font-size: 18px;&quot;&gt;STATE_READY, то происходит вызов функции&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; font-size: 18px;&quot;&gt;handle_ready,&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-620" y="-1147.5" width="275" height="167.5" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-8" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;kbuscomm_handle_ready&lt;/span&gt;&lt;div&gt;&lt;font size=&quot;1&quot;&gt;kbus_comm.c - (217)&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+          <mxGeometry x="-890" y="-960" width="220" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="1H-obPz8-rYO6zvIR5Bk-9" value="&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;, которая записывает значения DINP, AINP в&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;inp_data.discretes и&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px; text-align: center;&quot;&gt;&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;inp_data.analogs, переводя шаг&amp;nbsp; KBus или ничего не делает, а только переводит шаг&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); font-size: 18px;&quot;&gt;KBus.&lt;/span&gt;&lt;br&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="-620" y="-970" width="275" height="130" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
